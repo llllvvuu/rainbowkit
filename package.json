@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "postinstall": "husky install",
     "dev": "pnpm --recursive --parallel --filter @rainbow-me/rainbowkit* --filter example dev",
     "dev:lib": "pnpm --filter @rainbow-me/rainbowkit* dev",
     "dev:example": "pnpm dev:lib & pnpm --filter example dev",
