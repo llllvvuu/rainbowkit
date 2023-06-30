@@ -1,5 +1,4 @@
 import { Connector } from 'wagmi';
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { isHexString } from '../utils/colors';
 import { isMobile } from '../utils/isMobile';
 import { omitUndefinedValues } from '../utils/omitUndefinedValues';
@@ -97,13 +96,13 @@ export const connectorsForWallets = (walletList: WalletList) => {
 
         let walletConnectModalConnector: Connector | undefined;
         if (
-          walletMeta.id === 'walletConnect' &&
+          'WalletConnectConnector' in walletMeta &&
           connectionMethods.qrCode &&
           !isMobile()
         ) {
           const { chains, options } = connector;
 
-          walletConnectModalConnector = new WalletConnectConnector({
+          walletConnectModalConnector = new walletMeta.WalletConnectConnector({
             chains,
             options: {
               ...options,

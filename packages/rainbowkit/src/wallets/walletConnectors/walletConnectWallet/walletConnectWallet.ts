@@ -1,4 +1,5 @@
 /* eslint-disable sort-keys-fix/sort-keys-fix */
+import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { Chain } from '../../../components/RainbowKitProvider/RainbowKitChainContext';
 import { getWalletConnectUri } from '../../../utils/getWalletConnectUri';
 import { isIOS } from '../../../utils/isMobile';
@@ -33,6 +34,7 @@ export const walletConnectWallet = ({
   name: 'WalletConnect',
   iconUrl: async () => (await import('./walletConnectWallet.svg')).default,
   iconBackground: '#3b99fc',
+  WalletConnectConnector,
   createConnector: () => {
     const ios = isIOS();
 
